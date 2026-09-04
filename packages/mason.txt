@@ -1,0 +1,5 @@
+clangd
+lua-language-server
+shfmt
+stylua
+tree-sitter-cli

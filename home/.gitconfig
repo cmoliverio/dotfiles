@@ -1,0 +1,5 @@
+[user]
+	name = Christian Oliverio
+	email = coliverio@lynx.com
+[core]
+	editor = nvim

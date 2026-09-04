@@ -1,0 +1,122 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [
+{"id": "unbound", "keys": "alt+enter"}],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "Git Bash",
+    "keybindings":
+    [
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+shift+c"
+        },
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+tab"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+tab"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "Terminal.DuplicatePaneAuto",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "newTabMenu":
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles":
+    {
+        "defaults":
+        {
+            "bellStyle": "none",
+            "cursorHeight": 20,
+            "cursorShape": "vintage",
+            "font":
+            {
+                "cellHeight": "1.25",
+                "cellWidth": "0.65",
+                "size": 9,
+                "weight": "semi-light"
+            },
+            "opacity": 93,
+            "padding": "4",
+            "scrollbarState": "always",
+            "useAcrylic": false
+        },
+        "list":
+        [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{c053e45c-85f7-5a30-91ea-6f5db9ba2813}",
+                "hidden": false,
+                "name": "Ubuntu-26.04",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{dfe12f6c-b31c-5811-88c3-0da58c483d4b}",
+                "hidden": false,
+                "name": "rocky10",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "cursorHeight": 20,
+                "cursorShape": "vintage",
+                "experimental.retroTerminalEffect": false,
+                "font":
+                {
+                    "cellHeight": "1.25",
+                    "cellWidth": "0.65",
+                    "face": "Cascadia Code",
+                    "weight": "semi-light"
+                },
+                "guid": "{b8b0825a-b864-5934-9c63-5fa9e87e5616}",
+                "hidden": false,
+                "name": "rocky8",
+                "opacity": 93,
+                "padding": "4",
+                "scrollbarState": "always",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
+                "source": "Git"
+            }
+        ]
+    },
+    "schemes": [],
+    "themes": []
+}

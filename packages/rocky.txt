@@ -1,0 +1,13 @@
+cmake
+curl
+fd-find
+gcc
+gcc-c++
+git
+make
+nodejs
+python3.12
+ripgrep
+tmux
+unzip
+wget
