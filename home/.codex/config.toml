@@ -1,0 +1,24 @@
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+[projects."/home/coliverio"]
+trust_level = "trusted"
+
+[projects."/home/coliverio/test/los178-tst"]
+trust_level = "trusted"
+
+[projects."/home/coliverio/los178"]
+trust_level = "trusted"
+
+[projects."/home/coliverio/.config"]
+trust_level = "trusted"
+
+[projects."/home/coliverio/hlt/x86_64_unikernel/los178"]
+trust_level = "trusted"
+
+[projects."/home/coliverio/los178/tst"]
+trust_level = "trusted"
+
+[tui.keymap.editor]
+insert_newline = "shift-enter"
+delete_forward_word = []
+delete_backward_word = "ctrl-delete"

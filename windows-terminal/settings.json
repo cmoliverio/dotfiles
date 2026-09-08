@@ -2,27 +2,53 @@
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": [
-{"id": "unbound", "keys": "alt+enter"}],
+        {
+            "command": {
+                "action": "sendInput",
+                "input": "\u001b[3;5~"
+            },
+            "id": "User.sendInput.5E59B47E"
+        },
+        {
+            "command": {
+                "action": "sendInput",
+                "input": "\u001b[13;2u"
+            },
+            "id": "User.sendInput.ShiftEnter"
+        }
+    ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "Git Bash",
-    "keybindings":
+    "defaultProfile": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+    "keybindings": 
     [
         {
             "id": "Terminal.CopyToClipboard",
             "keys": "ctrl+shift+c"
         },
         {
-            "id": "Terminal.CopyToClipboard",
-            "keys": "ctrl+c"
+            "id": "User.sendInput.5E59B47E",
+            "keys": "ctrl+backspace"
+        },
+        {
+            "id": "User.sendInput.ShiftEnter",
+            "keys": "shift+enter"
+        },
+        {
+            "id": "unbound",
+            "keys": "alt+enter"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+tab"
         },
         {
             "id": null,
             "keys": "ctrl+shift+tab"
         },
         {
-            "id": null,
-            "keys": "ctrl+tab"
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+c"
         },
         {
             "id": "Terminal.PasteFromClipboard",
@@ -33,20 +59,20 @@
             "keys": "alt+shift+d"
         }
     ],
-    "newTabMenu":
+    "newTabMenu": 
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles":
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
             "bellStyle": "none",
             "cursorHeight": 20,
             "cursorShape": "vintage",
-            "font":
+            "font": 
             {
                 "cellHeight": "1.25",
                 "cellWidth": "0.65",
@@ -58,7 +84,7 @@
             "scrollbarState": "always",
             "useAcrylic": false
         },
-        "list":
+        "list": 
         [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -87,6 +113,7 @@
             {
                 "guid": "{dfe12f6c-b31c-5811-88c3-0da58c483d4b}",
                 "hidden": false,
+                "icon": "C:\\Users\\coliverio\\AppData\\Local\\wsl\\{3b07fe08-fa1a-468d-abc7-de1983439ec0}\\shortcut.ico",
                 "name": "rocky10",
                 "source": "Microsoft.WSL"
             },
@@ -94,7 +121,7 @@
                 "cursorHeight": 20,
                 "cursorShape": "vintage",
                 "experimental.retroTerminalEffect": false,
-                "font":
+                "font": 
                 {
                     "cellHeight": "1.25",
                     "cellWidth": "0.65",
@@ -103,6 +130,7 @@
                 },
                 "guid": "{b8b0825a-b864-5934-9c63-5fa9e87e5616}",
                 "hidden": false,
+                "icon": "C:\\Users\\coliverio\\AppData\\Local\\wsl\\{3b07fe08-fa1a-468d-abc7-de1983439ec0}\\shortcut.ico",
                 "name": "rocky8",
                 "opacity": 93,
                 "padding": "4",
