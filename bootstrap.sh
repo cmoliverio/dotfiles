@@ -231,6 +231,13 @@ ensure_fd_command() {
   fi
 }
 
+install_nerd_font() {
+  if [[ "${DOTFILES_SKIP_NERD_FONT:-false}" == true ]]; then
+    return
+  fi
+  "${repo_dir}/install-nerdfont.sh"
+}
+
 install_packages() {
   install_distro_packages
   install_neovim
@@ -238,6 +245,7 @@ install_packages() {
   install_uv
   install_codex
   ensure_fd_command
+  install_nerd_font
 }
 
 link_config() {

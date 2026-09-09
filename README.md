@@ -15,7 +15,7 @@ cd ~/dotfiles
 
 The bootstrap detects the distribution, installs the packages in
 `packages/<distro>.txt`, and installs the pinned Neovim, Node.js, uv, and Codex
-CLI versions from `packages/versions.txt`. It does not replace an existing
+CLI versions from `packages/versions.txt`, plus JetBrainsMono Nerd Font. It does not replace an existing
 Codex CLI installation, links the tracked configuration, installs TPM with
 `tmux-resurrect` and `tmux-continuum`, restores LazyVim's lockfile, and installs
 the Mason tools in `packages/mason.txt`. It requires `sudo` and network access.
@@ -32,6 +32,16 @@ Useful modes:
 ./bootstrap.sh --skip-packages   # Link/sync when the machine is already provisioned
 ./bootstrap.sh --skip-sync       # Do not download LazyVim or Mason dependencies
 ```
+
+The Linux font can also be installed independently:
+
+```bash
+./install-nerdfont.sh
+```
+
+If using WSL with Windows Terminal, install the font in Windows as well by
+running `install-nerdfont.ps1` from PowerShell. Then select `JetBrainsMono
+Nerd Font` in the Windows Terminal profile appearance settings.
 
 ## Windows Terminal
 
