@@ -1,0 +1,18 @@
+# Packages installed through apt on Ubuntu and Debian.
+# Neovim and Node.js are installed at the pinned versions in packages/versions.txt.
+bash-completion
+build-essential
+ca-certificates
+cmake
+curl
+fd-find
+git
+python3
+python3-pip
+python3-venv
+ripgrep
+tar
+tmux
+unzip
+wget
+xz-utils

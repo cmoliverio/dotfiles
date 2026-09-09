@@ -1,3 +1,4 @@
+ca-certificates
 cmake
 curl
 fd-find
@@ -5,9 +6,10 @@ gcc
 gcc-c++
 git
 make
-nodejs
 python3.12
 ripgrep
+tar
 tmux
 unzip
 wget
+xz
