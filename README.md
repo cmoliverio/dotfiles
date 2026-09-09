@@ -14,8 +14,11 @@ cd ~/dotfiles
 ```
 
 The bootstrap detects the distribution, installs the packages in
-`packages/<distro>.txt`, and installs the pinned Neovim, Node.js, uv, and Codex
-CLI versions from `packages/versions.txt`, plus JetBrainsMono Nerd Font. It does not replace an existing
+`packages/<distro>.txt`, and installs the pinned Neovim, Node.js, uv, tmux, and Codex
+CLI versions from `packages/versions.txt`, plus JetBrainsMono Nerd Font. tmux is
+built from the official release source into `~/.local/opt` and linked at
+`~/.local/bin/tmux`, so it takes precedence over the distribution package without
+replacing it. It does not replace an existing
 Codex CLI installation, links the tracked configuration, installs TPM with
 `tmux-resurrect` and `tmux-continuum`, restores LazyVim's lockfile, and installs
 the Mason tools in `packages/mason.txt`. It requires `sudo` and network access.
@@ -32,6 +35,11 @@ Useful modes:
 ./bootstrap.sh --skip-packages   # Link/sync when the machine is already provisioned
 ./bootstrap.sh --skip-sync       # Do not download LazyVim or Mason dependencies
 ```
+
+To update tmux later, change both `tmux` and `tmux-sha256` in
+`packages/versions.txt` to an official release and its SHA-256 checksum, then
+run `./bootstrap.sh --packages-only`. The package manifests contain the source
+build dependencies for the supported Debian- and RHEL-family distributions.
 
 The Linux font can also be installed independently:
 

@@ -2,6 +2,7 @@ neovim 0.11.5
 node 20.20.2
 npm 10.8.2
 python 3.12.14
-tmux 2.7
+tmux 3.7c
+tmux-sha256 7c60cae9a0e25288e2e24750aafc9e8800fc7fd4555e447e1b29ee4201cfb3bf
 uv 0.12.9
 codex-cli 0.153.3

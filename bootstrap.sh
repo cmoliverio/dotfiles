@@ -206,6 +206,51 @@ install_uv() {
   printf 'Installed uv %s.\n' "$uv_version"
 }
 
+install_tmux() {
+  local tmux_version tmux_sha256 temp_dir archive source_dir prefix current_tmux jobs
+  tmux_version="$(version_from_manifest tmux)"
+  tmux_sha256="$(version_from_manifest tmux-sha256)"
+  if [[ -z "$tmux_version" || -z "$tmux_sha256" ]]; then
+    printf 'tmux version or checksum is missing from packages/versions.txt.\n' >&2
+    exit 1
+  fi
+
+  prefix="$HOME/.local/opt/tmux-${tmux_version}"
+  current_tmux="$prefix/bin/tmux"
+  if [[ -x "$current_tmux" && "$("$current_tmux" -V)" == "tmux ${tmux_version}" ]]; then
+    printf 'tmux %s is already installed.\n' "$tmux_version"
+  else
+    temp_dir="$(mktemp -d)"
+    archive="$temp_dir/tmux.tar.gz"
+    curl --proto '=https' --tlsv1.2 -fL \
+      "https://github.com/tmux/tmux/releases/download/${tmux_version}/tmux-${tmux_version}.tar.gz" \
+      -o "$archive"
+    printf '%s  %s\n' "$tmux_sha256" "$archive" | sha256sum -c -
+    tar -xzf "$archive" -C "$temp_dir"
+    source_dir="$temp_dir/tmux-${tmux_version}"
+    if [[ ! -d "$source_dir" ]]; then
+      printf 'Unexpected tmux source archive layout.\n' >&2
+      exit 1
+    fi
+    jobs="$(getconf _NPROCESSORS_ONLN 2>/dev/null || printf '1')"
+    (
+      cd "$source_dir"
+      ./configure --prefix="$prefix"
+      make -j"$jobs"
+      make install
+    )
+    rm -rf -- "$temp_dir"
+    printf 'Installed tmux %s.\n' "$tmux_version"
+  fi
+
+  install -d -m 0755 "$HOME/.local/bin"
+  if [[ -e "$HOME/.local/bin/tmux" && ! -L "$HOME/.local/bin/tmux" ]]; then
+    mv -- "$HOME/.local/bin/tmux" "$HOME/.local/bin/tmux.before-dotfiles-$(date +%Y%m%d-%H%M%S)"
+  fi
+  ln -sfn "$current_tmux" "$HOME/.local/bin/tmux"
+  hash -r
+}
+
 install_codex() {
   local codex_version
   if [[ "$skip_codex" == true ]]; then
@@ -243,6 +288,7 @@ install_packages() {
   install_neovim
   install_node
   install_uv
+  install_tmux
   install_codex
   ensure_fd_command
   install_nerd_font

@@ -70,6 +70,7 @@
         "defaults": 
         {
             "bellStyle": "none",
+            "colorScheme": "Rosé Pine Moon",
             "cursorHeight": 20,
             "cursorShape": "vintage",
             "font": 
@@ -145,6 +146,31 @@
             }
         ]
     },
-    "schemes": [],
+    "schemes":
+    [
+        {
+            "background": "#232136",
+            "black": "#393552",
+            "blue": "#3E8FB0",
+            "brightBlack": "#6E6A86",
+            "brightBlue": "#3E8FB0",
+            "brightCyan": "#9CCFD8",
+            "brightGreen": "#9CCFD8",
+            "brightPurple": "#C4A7E7",
+            "brightRed": "#EB6F92",
+            "brightWhite": "#E0DEF4",
+            "brightYellow": "#F6C177",
+            "cursorColor": "#E0DEF4",
+            "cyan": "#9CCFD8",
+            "foreground": "#E0DEF4",
+            "green": "#9CCFD8",
+            "name": "Rosé Pine Moon",
+            "purple": "#C4A7E7",
+            "red": "#EB6F92",
+            "selectionBackground": "#44415A",
+            "white": "#E0DEF4",
+            "yellow": "#F6C177"
+        }
+    ],
     "themes": []
 }

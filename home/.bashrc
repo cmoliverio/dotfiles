@@ -1,10 +1,14 @@
-# Show the current Git branch, if inside a Git repository
+# Rosé Pine Moon prompt.  These are RGB escape sequences, so they work both
+# directly in Windows Terminal and through tmux with true-color enabled.
+# Show the current Git branch, if inside a Git repository.
 git_branch() {
-  git branch --show-current 2>/dev/null | sed 's/^/ (/; s/$/)/'
+  local branch
+  branch="$(git branch --show-current 2>/dev/null)" || return
+  [[ -n "$branch" ]] && printf ' (%s)' "$branch"
 }
 
-# Full path, colors, and optional Git branch
-PS1='\[\e[1;32m\]\u@rocky8\[\e[0m\]:\[\e[1;34m\]$(pwd)\[\e[1;33m\]$(git_branch)\[\e[0m\]\n\[\e[1;36m\]\$ \[\e[0m\]'
+# Rosé Pine Moon: iris, text, muted, foam, pine, gold, love.
+PS1='\[\e[38;2;196;167;231m\]╭─\[\e[38;2;224;222;244m\]\u\[\e[38;2;144;140;170m\]@\[\e[38;2;156;207;216m\]\h \[\e[38;2;62;143;176m\]\w\[\e[38;2;246;193;119m\]$(git_branch)\[\e[0m\]\n\[\e[38;2;196;167;231m\]╰─\[\e[38;2;235;111;146m\]\$\[\e[0m\] '
 
 alias ls='ls --color=auto'
 alias ll='ls -alF --color=auto'
