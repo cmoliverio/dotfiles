@@ -286,6 +286,7 @@ if [[ "$nvim_only" == false ]]; then
   link_config ".tmux.conf"
   link_config ".bashrc"
   link_config ".bash_profile"
+  link_config ".inputrc"
   link_config ".gitconfig"
   link_config ".codex/config.toml"
   install_tmux_plugins
