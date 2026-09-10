@@ -3,6 +3,11 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
+-- Make Ctrl+Delete delete the previous word in insert mode, like most editors.
+map("i", "<C-Delete>", "<C-w>", {
+  desc = "Delete previous word",
+})
+
 -- Press Escape to leave terminal mode
 map("t", "<Esc>", [[<C-\><C-n>]], {
   desc = "Exit terminal mode",
