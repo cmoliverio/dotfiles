@@ -51,3 +51,6 @@ require("lazy").setup({
     },
   },
 })
+
+-- Disable format-on-save while keeping manual formatting available.
+vim.g.autoformat = false
