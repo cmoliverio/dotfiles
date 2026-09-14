@@ -1,6 +1,9 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    explorer = {
+      replace_netrw = true
+    },
     scroll = {
       animate = {
         duration = {
@@ -22,6 +25,10 @@ return {
 
     picker = {
       sources = {
+        explorer = {
+          hidden = true,
+          ignored = true
+        },
         files = {
           hidden = true,
           ignored = true,
