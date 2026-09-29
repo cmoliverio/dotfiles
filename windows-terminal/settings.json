@@ -71,8 +71,7 @@
         {
             "bellStyle": "none",
             "colorScheme": "Rosé Pine Moon",
-            "cursorHeight": 20,
-            "cursorShape": "vintage",
+            "cursorShape": "doubleUnderscore",
             "font": 
             {
                 "cellHeight": "1.25",
@@ -119,8 +118,7 @@
                 "source": "Microsoft.WSL"
             },
             {
-                "cursorHeight": 20,
-                "cursorShape": "vintage",
+                "cursorShape": "doubleUnderscore",
                 "experimental.retroTerminalEffect": false,
                 "font": 
                 {

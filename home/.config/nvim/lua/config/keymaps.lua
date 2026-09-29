@@ -36,6 +36,13 @@ map("v", "<C-_>", "gc", {
   desc = "Comment selection",
 })
 
+-- Prefer an exact LSP definition, then fall back to tags or workspace grep.
+map("n", "gd", function()
+  require("config.goto_definition").goto_definition()
+end, {
+  desc = "Goto Definition (LSP, tags, or grep)",
+})
+
 -- Toggle floating terminal with Alt+F12
 map({ "n", "t" }, "<F60>", function()
   Snacks.terminal()
