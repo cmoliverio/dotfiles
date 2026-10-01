@@ -7,6 +7,16 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Keep Windows Terminal's configured cursor shape. Some plugins temporarily
+-- change 'guicursor', which otherwise leaves a different shape behind.
+vim.api.nvim_create_autocmd("OptionSet", {
+  pattern = "guicursor",
+  callback = function()
+    vim.cmd("noautocmd set guicursor=")
+  end,
+  desc = "Preserve the terminal cursor shape",
+})
+
 local function copy_buffer_value(value, label)
   if value == "" then
     vim.notify("Current buffer has no filename", vim.log.levels.WARN)

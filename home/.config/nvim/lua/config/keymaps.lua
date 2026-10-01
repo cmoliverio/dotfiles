@@ -3,6 +3,15 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
+-- Scroll the window and move the cursor by one line.
+map("n", "<C-e>", "<C-e>j", {
+  desc = "Scroll down and move cursor",
+})
+
+map("n", "<C-y>", "<C-y>k", {
+  desc = "Scroll up and move cursor",
+})
+
 -- Make Ctrl+Delete delete the previous word in insert mode, like most editors.
 map("i", "<C-Delete>", "<C-w>", {
   desc = "Delete previous word",
