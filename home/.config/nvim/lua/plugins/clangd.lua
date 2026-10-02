@@ -12,15 +12,6 @@ return {
             "--background-index",
             "--clang-tidy",
           },
-          keys = {
-            {
-              "gd",
-              function()
-                require("config.goto_definition").goto_definition()
-              end,
-              desc = "Goto Definition (LSP, tags, or grep)",
-            },
-          },
         },
       },
     },

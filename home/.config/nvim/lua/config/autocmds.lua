@@ -17,6 +17,18 @@ vim.api.nvim_create_autocmd("OptionSet", {
   desc = "Preserve the terminal cursor shape",
 })
 
+-- Override LazyVim's Snacks picker mapping for definitions.  Calling the LSP
+-- method directly keeps `gd` from opening a picker when no definition exists.
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(event)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+      buffer = event.buf,
+      desc = "Goto Definition",
+    })
+  end,
+  desc = "Use LSP directly for go-to-definition",
+})
+
 local function copy_buffer_value(value, label)
   if value == "" then
     vim.notify("Current buffer has no filename", vim.log.levels.WARN)
