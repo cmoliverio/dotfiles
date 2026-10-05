@@ -49,7 +49,7 @@ The Linux font can also be installed independently:
 
 If using WSL with Windows Terminal, install the font in Windows as well by
 running `install-nerdfont.ps1` from PowerShell. Then select `JetBrainsMono
-Nerd Font` in the Windows Terminal profile appearance settings.
+NF` in the Windows Terminal profile appearance settings.
 
 ## Windows Terminal
 

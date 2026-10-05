@@ -24,6 +24,11 @@ return {
     },
 
     picker = {
+      icons = {
+        git = {
+          untracked = "",
+        },
+      },
       sources = {
         explorer = {
           hidden = true,
