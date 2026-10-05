@@ -32,7 +32,12 @@ return {
       sources = {
         explorer = {
           hidden = true,
-          ignored = true
+          ignored = true,
+          on_show = function(picker)
+            -- Let Vimade fade the explorer without touching other Snacks
+            -- pickers, especially interactive file-search prompts.
+            vim.b[picker.list.win.buf].vimade_snacks_explorer = true
+          end,
         },
         files = {
           hidden = true,
