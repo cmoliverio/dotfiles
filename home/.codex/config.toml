@@ -21,7 +21,17 @@ trust_level = "trusted"
 [projects."/home/coliverio/tmp"]
 trust_level = "trusted"
 
+[projects."/home/coliverio/dotfiles"]
+trust_level = "trusted"
+
+[tui]
+screen_reader_detection_done = true
+alternate_screen = "never"
+
 [tui.keymap.editor]
 insert_newline = "shift-enter"
 delete_forward_word = []
 delete_backward_word = "ctrl-delete"
+
+[tui.model_availability_nux]
+"gpt-6.1-sol" = 2
