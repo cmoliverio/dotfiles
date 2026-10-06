@@ -76,6 +76,7 @@
             {
                 "cellHeight": "1.25",
                 "cellWidth": "0.65",
+                "face": "JetBrainsMono Arrow Nerd Font",
                 "size": 9,
                 "weight": "semi-light"
             },
@@ -124,7 +125,7 @@
                 {
                     "cellHeight": "1.25",
                     "cellWidth": "0.65",
-                    "face": "JetBrainsMono NF",
+                    "face": "JetBrainsMono Arrow Nerd Font",
                     "weight": "normal"
                 },
                 "guid": "{b8b0825a-b864-5934-9c63-5fa9e87e5616}",

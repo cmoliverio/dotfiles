@@ -47,21 +47,21 @@ The Linux font can also be installed independently:
 ./install-nerdfont.sh
 ```
 
-If using WSL with Windows Terminal, install the font in Windows as well by
-running `install-nerdfont.ps1` from PowerShell. Then select `JetBrainsMono
-NF` in the Windows Terminal profile appearance settings.
-
 ## Windows Terminal
 
-Install and open Windows Terminal once, close it, then run this from the repo
-inside WSL:
+Install and open Windows Terminal once. From the repo inside WSL, run:
 
 ```bash
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(wslpath -w "$PWD/restore-windows-terminal.ps1")"
+./install-arrow-nerdfont.sh
 ```
 
-The script backs up the current Windows Terminal settings before restoring the
-tracked keybindings, profiles, and appearance.
+This one command installs the base font in WSL when needed, builds and installs
+the custom font in Windows, backs up the current Windows Terminal settings, and
+restores the tracked configuration. The custom font keeps the `->`, `<-`,
+`-->`, `<--`, and `<->` ligatures and disables the other programming ligatures.
+Its `JetBrainsMono Arrow Nerd Font` family is selected for every profile, so
+terminal Neovim uses it too. Close all Windows Terminal windows and reopen it
+after installation so Windows reloads the font.
 
 ## WSL settings
 
