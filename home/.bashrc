@@ -1,5 +1,5 @@
-# Rosé Pine Moon prompt.  These are RGB escape sequences, so they work both
-# directly in Windows Terminal and through tmux with true-color enabled.
+# Rosé Pine Moon prompt. These indexed ANSI colours are mapped to the exact
+# Rosé Pine RGB values by tmux, which can then mute them in inactive panes.
 # Show the current Git branch, if inside a Git repository.
 git_branch() {
   local branch
@@ -8,7 +8,7 @@ git_branch() {
 }
 
 # Rosé Pine Moon: iris, text, muted, foam, pine, gold, love.
-PS1='\[\e[38;2;196;167;231m\]╭─\[\e[38;2;224;222;244m\]\u\[\e[38;2;144;140;170m\]@\[\e[38;2;156;207;216m\]\h \[\e[38;2;62;143;176m\]\w\[\e[38;2;246;193;119m\]$(git_branch)\[\e[0m\]\n\[\e[38;2;196;167;231m\]╰─\[\e[38;2;235;111;146m\]\$\[\e[0m\] '
+PS1='\[\e[38;5;183m\]╭─\[\e[38;5;189m\]\u\[\e[38;5;103m\]@\[\e[38;5;152m\]\h \[\e[38;5;31m\]\w\[\e[38;5;221m\]$(git_branch)\[\e[0m\]\n\[\e[38;5;183m\]╰─\[\e[38;5;204m\]\$\[\e[0m\] '
 
 alias ls='ls --color=auto'
 alias ll='ls -alF --color=auto'

@@ -33,6 +33,20 @@ return {
         explorer = {
           hidden = true,
           ignored = true,
+          layout = {
+            layout = {
+              width = 46,
+              min_width = 46,
+            },
+          },
+          win = {
+            list = {
+              wo = {
+                number = true,
+                relativenumber = true,
+              },
+            },
+          },
           on_show = function(picker)
             -- Let Vimade fade the explorer without touching other Snacks
             -- pickers, especially interactive file-search prompts.
