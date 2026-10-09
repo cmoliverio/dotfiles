@@ -45,6 +45,11 @@ map("v", "<C-_>", "gc", {
   desc = "Comment selection",
 })
 
+-- Reserve s for surround commands without invoking Vim's substitute command.
+map({ "n", "x" }, "s", "<Nop>", {
+  desc = "Surround prefix",
+})
+
 -- Toggle floating terminal with Alt+F12
 map({ "n", "t" }, "<F60>", function()
   Snacks.terminal()

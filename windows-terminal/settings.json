@@ -15,6 +15,13 @@
                 "input": "\u001b[13;2u"
             },
             "id": "User.sendInput.ShiftEnter"
+        },
+        {
+            "command": {
+                "action": "sendInput",
+                "input": "\u0016"
+            },
+            "id": "User.sendInput.CtrlV"
         }
     ],
     "copyFormatting": "none",
@@ -51,7 +58,7 @@
             "keys": "ctrl+c"
         },
         {
-            "id": "Terminal.PasteFromClipboard",
+            "id": "User.sendInput.CtrlV",
             "keys": "ctrl+v"
         },
         {
