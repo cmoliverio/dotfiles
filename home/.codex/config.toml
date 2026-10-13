@@ -1,5 +1,10 @@
 model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+
+[models.new_thread]
+model = "gpt-5.6-terra"
 model_reasoning_effort = "low"
+
 [projects."/home/coliverio"]
 trust_level = "trusted"
 
@@ -27,6 +32,9 @@ trust_level = "trusted"
 [projects."/home/coliverio/hlt"]
 trust_level = "trusted"
 
+[projects."/home/coliverio/svp"]
+trust_level = "trusted"
+
 [tui]
 screen_reader_detection_done = true
 alternate_screen = "never"
@@ -37,4 +45,5 @@ delete_forward_word = []
 delete_backward_word = "ctrl-delete"
 
 [tui.model_availability_nux]
+"gpt-5.6-sol" = 4
 "gpt-6.1-sol" = 4

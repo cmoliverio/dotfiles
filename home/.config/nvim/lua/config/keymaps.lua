@@ -22,6 +22,20 @@ map("t", "<Esc>", [[<C-\><C-n>]], {
   desc = "Exit terminal mode",
 })
 
+-- Hold Ctrl+Shift+Arrow to continuously resize the active split.
+map("n", "<C-S-Left>", "<cmd>vertical resize -2<cr>", {
+  desc = "Shrink split width",
+})
+map("n", "<C-S-Right>", "<cmd>vertical resize +2<cr>", {
+  desc = "Grow split width",
+})
+map("n", "<C-S-Up>", "<cmd>resize -2<cr>", {
+  desc = "Shrink split height",
+})
+map("n", "<C-S-Down>", "<cmd>resize +2<cr>", {
+  desc = "Grow split height",
+})
+
 -- Comment/uncomment current line
 map("n", "<C-/>", "gcc", {
   remap = true,
