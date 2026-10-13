@@ -7,6 +7,13 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Check for edits made outside Neovim (for example, by Codex), and always ask
+-- before replacing the buffer with the external version.
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  command = "checktime",
+  desc = "Prompt when a file changes outside Neovim",
+})
+
 -- Remove carriage returns from text pasted from Windows clipboards.
 local default_paste = vim.paste
 

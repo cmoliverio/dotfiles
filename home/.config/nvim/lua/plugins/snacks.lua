@@ -41,6 +41,11 @@ return {
           },
           win = {
             list = {
+              -- Override Snacks' list-down mapping; `on_show` below maps it
+              -- directly to tmux's pane below.
+              keys = {
+                ["<C-j>"] = false,
+              },
               wo = {
                 number = true,
                 relativenumber = true,
@@ -60,6 +65,15 @@ return {
             })
             vim.wo[picker.list.win.win].cursorline = true
             vim.wo[picker.list.win.win].cursorlineopt = "line"
+
+            -- The explorer and editor are side-by-side. Neovim's `wincmd j`
+            -- can incorrectly select that editor window, so go directly to
+            -- tmux's pane below from the explorer.
+            vim.keymap.set("n", "<C-j>", function()
+              if vim.env.TMUX_PANE then
+                vim.fn.system({ "tmux", "select-pane", "-t", vim.env.TMUX_PANE, "-D" })
+              end
+            end, { buffer = picker.list.win.buf, silent = true })
           end,
         },
         files = {
