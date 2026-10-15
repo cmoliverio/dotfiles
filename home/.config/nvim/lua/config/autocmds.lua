@@ -28,7 +28,7 @@ end
 -- inactive windows. The colorscheme's default comment color is too warm once
 -- Vimade applies its foreground tint.
 local function set_comment_highlights()
-  local comment = { fg = "#59677d", italic = true }
+  local comment = { fg = "#aca8c7", italic = true }
   vim.api.nvim_set_hl(0, "Comment", comment)
   vim.api.nvim_set_hl(0, "@comment", comment)
 end

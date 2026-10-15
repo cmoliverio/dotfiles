@@ -335,6 +335,7 @@ if [[ "$packages_only" == true ]]; then
 fi
 
 link_config ".config/nvim"
+link_config ".config/tmux"
 
 if [[ "$nvim_only" == false ]]; then
   link_config ".tmux.conf"

@@ -23,17 +23,23 @@ map("t", "<Esc>", [[<C-\><C-n>]], {
 })
 
 -- Hold Ctrl+Shift+Arrow to continuously resize the active split.
+-- LazyVim binds the Ctrl+Arrow variants by default; reserve resizing for the
+-- Shift-modified keys instead.
+for _, key in ipairs({ "<C-Left>", "<C-Right>", "<C-Up>", "<C-Down>" }) do
+  pcall(vim.keymap.del, "n", key)
+end
+
 map("n", "<C-S-Left>", "<cmd>vertical resize -2<cr>", {
   desc = "Shrink split width",
 })
 map("n", "<C-S-Right>", "<cmd>vertical resize +2<cr>", {
   desc = "Grow split width",
 })
-map("n", "<C-S-Up>", "<cmd>resize -2<cr>", {
-  desc = "Shrink split height",
-})
-map("n", "<C-S-Down>", "<cmd>resize +2<cr>", {
+map("n", "<C-S-Up>", "<cmd>resize +2<cr>", {
   desc = "Grow split height",
+})
+map("n", "<C-S-Down>", "<cmd>resize -2<cr>", {
+  desc = "Shrink split height",
 })
 
 -- Comment/uncomment current line

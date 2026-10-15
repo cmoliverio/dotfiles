@@ -1,6 +1,49 @@
 return {
-  "folke/snacks.nvim",
-  opts = {
+  {
+    "folke/snacks.nvim",
+    init = function()
+      local group = vim.api.nvim_create_augroup("snacks_picker_focus", { clear = true })
+
+      local function set_picker_cursorline_highlight()
+        vim.api.nvim_set_hl(0, "SnacksPickerListCursorLine", {
+          bg = "#403d52",
+          bold = true,
+        })
+      end
+
+      set_picker_cursorline_highlight()
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        group = group,
+        callback = set_picker_cursorline_highlight,
+        desc = "Keep the active Snacks picker row visible",
+      })
+
+      -- Snacks updates its list cursorline on WinEnter/WinLeave, but returning
+      -- from a tmux pane only emits FocusGained. Refresh every visible picker
+      -- after focus returns, regardless of its source or layout.
+      vim.api.nvim_create_autocmd("FocusGained", {
+        group = group,
+        callback = function()
+          vim.schedule(function()
+            if not package.loaded["snacks"] then
+              return
+            end
+            local ok, snacks = pcall(require, "snacks")
+            if not ok or not snacks.picker then
+              return
+            end
+            for _, picker in ipairs(snacks.picker.get()) do
+              if not picker.closed and picker.list.win:win_valid() and picker:is_focused() then
+                picker.list:update_cursorline()
+                picker.list.win:redraw()
+              end
+            end
+          end)
+        end,
+        desc = "Restore the active Snacks picker row after terminal focus",
+      })
+    end,
+    opts = {
     explorer = {
       replace_netrw = true
     },
@@ -59,10 +102,6 @@ return {
 
             -- Keep the selected tree item visible when deeply indented by
             -- highlighting its entire row.
-            vim.api.nvim_set_hl(0, "SnacksPickerListCursorLine", {
-              bg = "#403d52",
-              bold = true,
-            })
             vim.wo[picker.list.win.win].cursorline = true
             vim.wo[picker.list.win.win].cursorlineopt = "line"
 
@@ -82,6 +121,7 @@ return {
           exclude = { ".git" },
         },
       },
+    },
     },
   },
 }

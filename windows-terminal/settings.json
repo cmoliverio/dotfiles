@@ -22,6 +22,34 @@
                 "input": "\u0016"
             },
             "id": "User.sendInput.CtrlV"
+        },
+        {
+            "command": {
+                "action": "sendInput",
+                "input": "\u001b[1;6A"
+            },
+            "id": "User.sendInput.CtrlShiftUp"
+        },
+        {
+            "command": {
+                "action": "sendInput",
+                "input": "\u001b[1;6B"
+            },
+            "id": "User.sendInput.CtrlShiftDown"
+        },
+        {
+            "command": {
+                "action": "sendInput",
+                "input": "\u001b[1;6D"
+            },
+            "id": "User.sendInput.CtrlShiftLeft"
+        },
+        {
+            "command": {
+                "action": "sendInput",
+                "input": "\u001b[1;6C"
+            },
+            "id": "User.sendInput.CtrlShiftRight"
         }
     ],
     "copyFormatting": "none",
@@ -60,6 +88,22 @@
         {
             "id": "User.sendInput.CtrlV",
             "keys": "ctrl+v"
+        },
+        {
+            "id": "User.sendInput.CtrlShiftUp",
+            "keys": "ctrl+shift+up"
+        },
+        {
+            "id": "User.sendInput.CtrlShiftDown",
+            "keys": "ctrl+shift+down"
+        },
+        {
+            "id": "User.sendInput.CtrlShiftLeft",
+            "keys": "ctrl+shift+left"
+        },
+        {
+            "id": "User.sendInput.CtrlShiftRight",
+            "keys": "ctrl+shift+right"
         },
         {
             "id": "Terminal.DuplicatePaneAuto",
