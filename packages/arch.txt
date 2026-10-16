@@ -1,0 +1,20 @@
+# Packages installed through pacman on Arch Linux.
+# Neovim and Node.js are installed at the pinned versions in packages/versions.txt.
+base-devel
+bison
+ca-certificates
+cmake
+curl
+fd
+fontconfig
+git
+libevent
+ncurses
+pkgconf
+python
+python-pip
+ripgrep
+tar
+unzip
+wget
+xz

@@ -5,7 +5,7 @@
         {
             "command": {
                 "action": "sendInput",
-                "input": "\u001b[3;5~"
+                "input": "\u001b[127;5u"
             },
             "id": "User.sendInput.5E59B47E"
         },

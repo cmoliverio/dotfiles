@@ -5,7 +5,7 @@ Personal LazyVim, tmux, shell, Codex, WSL, and Windows Terminal configuration.
 ## Linux bootstrap
 
 After installing Git and cloning the repository, one command provisions a
-machine running Ubuntu/Debian or Rocky/RHEL-like Linux:
+machine running Arch Linux, Ubuntu/Debian, or Rocky/RHEL-like Linux:
 
 ```bash
 git clone git@github.com:cmoliverio/dotfiles.git ~/dotfiles
@@ -22,6 +22,13 @@ replacing it. It does not replace an existing
 Codex CLI installation, links the tracked configuration, installs TPM with
 `tmux-resurrect` and `tmux-continuum`, restores LazyVim's lockfile, and installs
 the Mason tools in `packages/mason.txt`. It requires `sudo` and network access.
+On Arch, the package step uses `pacman -Syu --needed` because Arch requires full
+system upgrades when synchronizing packages.
+
+When Konsole is installed, the bootstrap also makes the `Dotfiles` profile its
+default. It uses JetBrainsMono Nerd Font Mono at 13pt and an 88% opaque,
+blurred background. Plasma's compositor must have blur enabled for the blur
+effect to appear.
 
 Existing dotfiles are moved into `~/.dotfiles-backup/<timestamp>/` before repo
 versions are linked. Codex authentication is never tracked or replaced; only
@@ -39,7 +46,7 @@ Useful modes:
 To update tmux later, change both `tmux` and `tmux-sha256` in
 `packages/versions.txt` to an official release and its SHA-256 checksum, then
 run `./bootstrap.sh --packages-only`. The package manifests contain the source
-build dependencies for the supported Debian- and RHEL-family distributions.
+build dependencies for Arch, Debian-family, and RHEL-family distributions.
 
 The Linux font can also be installed independently:
 

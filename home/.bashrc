@@ -18,6 +18,11 @@ alias grep='grep --color=auto'
 
 alias codex='codex --model gpt-5.6-terra'
 
+# Konsole sends Ctrl+D as EOF at an empty Bash prompt. Keep the terminal open;
+# use `exit` when the shell should end.
+IGNOREEOF=999999
+set -o ignoreeof
+
 # >>> Codex installer >>>
 export PATH="$HOME/.local/bin:$PATH"
 # <<< Codex installer <<<

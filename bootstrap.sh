@@ -21,7 +21,7 @@ Usage: ./bootstrap.sh [options]
   --skip-sync      Do not download LazyVim plugins or Mason tools.
   --skip-codex     Do not install Codex CLI when it is missing.
 
-Supported distributions: Ubuntu/Debian and Rocky/RHEL-like systems.
+Supported distributions: Arch Linux, Ubuntu/Debian, and Rocky/RHEL-like systems.
 EOF
 }
 
@@ -73,6 +73,12 @@ install_distro_packages() {
   # shellcheck disable=SC1091
   . /etc/os-release
   case "${ID:-}" in
+    arch)
+      read_package_manifest "$repo_dir/packages/arch.txt"
+      # Arch does not support partial upgrades. Refresh the package database and
+      # upgrade installed packages together with the requested dependencies.
+      as_root pacman -Syu --needed --noconfirm "${packages[@]}"
+      ;;
     ubuntu|debian)
       read_package_manifest "$repo_dir/packages/ubuntu.txt"
       as_root apt-get update
@@ -325,6 +331,25 @@ install_tmux_plugins() {
   TMUX_PLUGIN_MANAGER_PATH="$plugin_dir/" "$tpm_dir/bin/install_plugins"
 }
 
+configure_konsole() {
+  local write_config
+
+  if ! command -v konsole >/dev/null 2>&1; then
+    return
+  fi
+
+  if command -v kwriteconfig6 >/dev/null 2>&1; then
+    write_config=kwriteconfig6
+  elif command -v kwriteconfig5 >/dev/null 2>&1; then
+    write_config=kwriteconfig5
+  else
+    printf 'Konsole is installed, but kwriteconfig is unavailable; select the Dotfiles profile in Konsole manually.\n' >&2
+    return
+  fi
+
+  "$write_config" --file konsolerc --group 'Desktop Entry' --key DefaultProfile Dotfiles.profile
+}
+
 if [[ "$skip_packages" == false ]]; then
   install_packages
 fi
@@ -336,6 +361,10 @@ fi
 
 link_config ".config/nvim"
 link_config ".config/tmux"
+link_config ".local/share/konsole/Dotfiles.profile"
+link_config ".local/share/konsole/Dotfiles.colorscheme"
+link_config ".local/share/konsole/Dotfiles.keytab"
+configure_konsole
 
 if [[ "$nvim_only" == false ]]; then
   link_config ".tmux.conf"

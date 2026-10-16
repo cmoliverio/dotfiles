@@ -12,8 +12,9 @@ map("n", "<C-y>", "<C-y>k", {
   desc = "Scroll up and move cursor",
 })
 
--- Make Ctrl+Delete delete the previous word in insert mode, like most editors.
-map("i", "<C-Delete>", "<C-w>", {
+-- Windows Terminal sends Ctrl+Backspace as CSI 127;5u. Keep it distinct from
+-- Ctrl+Delete and Ctrl+H, then delete the preceding word in insert mode.
+map("i", "\x1b[127;5u", "<C-w>", {
   desc = "Delete previous word",
 })
 
