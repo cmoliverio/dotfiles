@@ -2,6 +2,7 @@
 AntiAliasFonts=true
 ColorScheme=Dotfiles
 Font=JetBrainsMono Nerd Font Mono,10.5,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
+CursorShape=2
 
 [General]
 Name=Dotfiles

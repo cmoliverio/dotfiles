@@ -348,6 +348,8 @@ configure_konsole() {
   fi
 
   "$write_config" --file konsolerc --group 'Desktop Entry' --key DefaultProfile Dotfiles.profile
+  # Keep Konsole's menu bar hidden, including when starting fullscreen.
+  "$write_config" --file konsolerc --group MainWindow --key MenuBar Disabled
 }
 
 if [[ "$skip_packages" == false ]]; then
