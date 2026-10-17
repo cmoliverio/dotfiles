@@ -15,7 +15,7 @@ key Tab +Control-Ansi : "\t"
 key Backtab +Control-Ansi : "\t"
 key Return-Shift-NewLine : "\r"
 key Return-Shift+NewLine : "\r\n"
-key Return+Shift : "\EOM"
+key Return+Shift : "\E[13;2u"
 key Backspace -Control : "\x7f"
 key Backspace +Control : "\E[127;5u"
 
