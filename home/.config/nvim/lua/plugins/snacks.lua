@@ -88,6 +88,8 @@ return {
               -- directly to tmux's pane below.
               keys = {
                 ["<C-j>"] = false,
+                -- Keep the explorer open when leaving a selection or mode.
+                ["<Esc>"] = false,
               },
               wo = {
                 number = true,
